@@ -22,7 +22,7 @@ export default function About() {
                                     <div className="flex flex-col gap-0 ">
                                         <div className="font-bold text-foreground/100 text-4xl">CYRUS JAROD LAYUGAN</div>
                                         <div className="text-medium text-foreground/80 ">Aspiring Software Engineer</div>
-                                        <div className="text-medium font-medium mt-3">I'm a builder. I'm a thinker. I'm a puzzle solver.</div>
+                                        <div className="text-medium font-medium mt-3">I&apos;m a builder. I&apos;m a thinker. I&apos;m a puzzle solver.</div>
                                         <div className="text-small font-small ">A persistent and creative developer forever driven by curiosity, knowledge, and truth.</div>
                                         <Divider className="mt-2 mb-3" />
                                         <Button color='primary' className='text-foreground font-medium'>Cookie for you!</Button>
