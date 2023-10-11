@@ -22,11 +22,11 @@ export default function ProjectsCard({ index, project }: {
 
     return (
         <Card
-            isFooterBlurred
+
             key={index}
             shadow="sm"
-            radius='sm'
-            className=""
+            className="pb-2 border-none bg-background/60 dark:bg-default-100/50 max-w-[650px]"
+
         >
             <Image
                 removeWrapper
@@ -38,8 +38,8 @@ export default function ProjectsCard({ index, project }: {
             />
             <CardFooter className="justify-evenly">
                 <div className=" px-4">
-                    <div className="text-small">{project.name}{index}</div>
-                    <div className="text-small text-foreground/50">Last Updated: {project.dateUpdated}</div>
+                    <div className="text-small text-foreground">{project.name}{index}</div>
+                    <div className="text-small text-foreground">Last Updated: {project.dateUpdated}</div>
                 </div>
                 <Button
                     isIconOnly
@@ -51,7 +51,7 @@ export default function ProjectsCard({ index, project }: {
                         console.log(isCookieLike);
                     }}
                 >
-                    {isCookieLike ? <CookieLikeIcon /> : <CookieUnlikeIcon />}
+                    {isCookieLike ? <CookieLikeIcon/> : <CookieUnlikeIcon />}
                 </Button>
             </CardFooter>
         </Card>

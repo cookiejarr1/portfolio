@@ -22,7 +22,7 @@ export default function Home() {
         <About />
       </div>
       <div className="px-14 ">
-        <SkillsGroup />
+        {/* <SkillsGroup /> */}
       </div>
       <div className="px-14 ">
         <ProjectsGroup />

@@ -30,7 +30,7 @@ export default function NavigationBar() {
               </DropdownTrigger>
               <DropdownMenu
                 aria-label="Scroll to View"
-                onAction={(key) => alert(key)}
+                onAction={(key) => { console.log(key)} }
               >
                 <DropdownItem key="about">About</DropdownItem>
                 <DropdownItem key="skills">Skills</DropdownItem>

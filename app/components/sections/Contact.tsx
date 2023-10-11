@@ -30,7 +30,7 @@ export default function Contact() {
                                         <div className='pt-3 py-2'><Input isClearable size='sm' variant="bordered" label="Name" placeholder="Your Name" /></div>
                                         <div><Input isClearable size='sm' variant="bordered" type="email" label="Email" placeholder="example@email.com" /></div>
                                         <Divider className="mt-2 mb-3" />
-                                        <Button color='primary' className='text-foreground font-medium'>Let's Talk</Button>
+                                        <Button color='primary' className='text-foreground font-medium'>Let&apos;s Talk</Button>
                                     </div>
                                 </div>
                                 <div className='flex justify-evenly pt-3 '>

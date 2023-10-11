@@ -1,10 +1,6 @@
 "use client";
 
-import React from 'react'
-import Link from "next/link";
-import CookieIcon from '../icons/CookieLikeIcon';
-import DarkModeIcon from '../icons/DarkModeIcon';
-import FilterIcon from '../icons/FilterIcon';
+import React, { Key, useMemo, useState } from "react";
 import {
   Button,
   ButtonGroup,
@@ -14,10 +10,9 @@ import {
   DropdownItem,
   Card,
   CardFooter,
-  Image
+  Image,
 } from "@nextui-org/react";
-import ProjectsCard from './ProjectsCard';
-
+import ProjectsCard from "./ProjectsCard";
 
 export default function ProjectsGroup() {
   const projects = [
@@ -138,18 +133,15 @@ export default function ProjectsGroup() {
   const years = ["All"];
 
   for (let i = currentYear; i >= 2013; i--) {
-    years.push(i.toString())
+    years.push(i.toString());
   }
 
-  const [selectedKeys, setSelectedKeys] = React.useState(new Set([years[0]]));
-
-  const selectedValue = React.useMemo(
-    () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
-    [selectedKeys]
-  );
+  const [selectedKeys, setSelectedKeys] = useState(new Set([years[0]]));
 
   const filtered = projects.filter(function (item) {
-    return selectedKeys.has(new Date(item.dateUpdated).getFullYear().toString())
+    return selectedKeys.has(
+      new Date(item.dateUpdated).getFullYear().toString()
+    );
   });
 
   return (
@@ -157,13 +149,10 @@ export default function ProjectsGroup() {
       <div className="px-10 py-7 flex justify-between ">
         <p className="text-2xl font-bold">Projects</p>
         <ButtonGroup variant="flat">
-          <Dropdown className='bg-primary'>
+          <Dropdown className="bg-primary">
             <DropdownTrigger>
-              <Button
-                variant="bordered"
-                className="capitalize"
-              >
-                {selectedValue}
+              <Button variant="bordered" className="capitalize">
+                {selectedKeys}
               </Button>
             </DropdownTrigger>
             <DropdownMenu
@@ -175,34 +164,38 @@ export default function ProjectsGroup() {
               selectedKeys={selectedKeys}
               onSelectionChange={setSelectedKeys}
               className="text-foreground"
-              >
-              {years.map(year =>
+            >
+              {years.map((year) => (
                 <DropdownItem
                   key={year}
                   textValue={year}
-                  className='pt-2 text-foreground'
-                  >
+                  className="pt-2 text-content1"
+                >
                   {year}
-                </DropdownItem>)}
+                </DropdownItem>
+              ))}
             </DropdownMenu>
           </Dropdown>
         </ButtonGroup>
-
       </div>
       <div className="gap-7 flex flex-wrap justify-center ">
-        {selectedKeys.keys().next().value === "All" ?
-          projects.map((project, index) => {
-            return (
-              <ProjectsCard key={index} index={index} project={project} />
-            )
-          })
-          :
-          filtered.map((project, index) => {
-            return filtered.length < 0 ?
-              <div className="font-bold text-inherit">No Projects to Display</div>
-              : <ProjectsCard key={index} index={index} project={project} />
-          })}
+        {selectedKeys.keys().next().value === "All"
+          ? projects.map((project, index) => {
+              return (
+                <ProjectsCard key={index} index={index} project={project} />
+              );
+            })
+          : filtered.map((project, index) => {
+              console.log(filtered);
+              return filtered ? (
+                <ProjectsCard key={index} index={index} project={project} />
+              ) : (
+                <div className="font-bold text-foreground">
+                  No Projects to Display
+                </div>
+              );
+            })}
       </div>
     </div>
-  )
+  );
 }
