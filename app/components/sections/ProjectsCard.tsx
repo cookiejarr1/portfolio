@@ -22,7 +22,6 @@ export default function ProjectsCard({ index, project }: {
 
     return (
         <Card
-
             key={index}
             shadow="sm"
             className="pb-2 border-none bg-background/60 dark:bg-default-100/50 max-w-[650px]"
@@ -51,7 +50,7 @@ export default function ProjectsCard({ index, project }: {
                         console.log(isCookieLike);
                     }}
                 >
-                    {isCookieLike ? <CookieLikeIcon/> : <CookieUnlikeIcon />}
+                    {isCookieLike ? <CookieLikeIcon /> : <CookieUnlikeIcon />}
                 </Button>
             </CardFooter>
         </Card>

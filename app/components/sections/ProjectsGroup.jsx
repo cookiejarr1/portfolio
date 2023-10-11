@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Key, useMemo, useState } from "react";
+import React, {useState } from "react";
 import {
   Button,
   ButtonGroup,
@@ -8,9 +8,6 @@ import {
   DropdownTrigger,
   DropdownMenu,
   DropdownItem,
-  Card,
-  CardFooter,
-  Image,
 } from "@nextui-org/react";
 import ProjectsCard from "./ProjectsCard";
 
@@ -68,7 +65,31 @@ export default function ProjectsGroup() {
       name: "Project",
       id: 1,
       dateCreated: "11-08-2013",
+      dateUpdated: "11-08-2017",
+      images: [],
+      links: [],
+    },
+    {
+      name: "Project",
+      id: 1,
+      dateCreated: "11-08-2013",
       dateUpdated: "11-08-2013",
+      images: [],
+      links: [],
+    },
+    {
+      name: "Project",
+      id: 1,
+      dateCreated: "11-08-2013",
+      dateUpdated: "11-08-2013",
+      images: [],
+      links: [],
+    },
+    {
+      name: "Project",
+      id: 1,
+      dateCreated: "11-08-2013",
+      dateUpdated: "11-08-2018",
       images: [],
       links: [],
     },
@@ -100,31 +121,7 @@ export default function ProjectsGroup() {
       name: "Project",
       id: 1,
       dateCreated: "11-08-2013",
-      dateUpdated: "11-08-2013",
-      images: [],
-      links: [],
-    },
-    {
-      name: "Project",
-      id: 1,
-      dateCreated: "11-08-2013",
-      dateUpdated: "11-08-2013",
-      images: [],
-      links: [],
-    },
-    {
-      name: "Project",
-      id: 1,
-      dateCreated: "11-08-2013",
-      dateUpdated: "11-08-2013",
-      images: [],
-      links: [],
-    },
-    {
-      name: "Project",
-      id: 1,
-      dateCreated: "11-08-2013",
-      dateUpdated: "11-08-2013",
+      dateUpdated: "11-08-2014",
       images: [],
       links: [],
     },

@@ -1,8 +1,8 @@
 import React from 'react'
 import Skills from '../icons/SkillsIcon';
-import { Card, CardHeader, CardBody, CardFooter, Image, Button } from "@nextui-org/react";
+import { Card } from "@nextui-org/react";
 
-export default function SkillsGroup () {
+export default function SkillsGroup() {
     return (
         <div className="px-40 py-14 justify-center">
             <div className="gap-8 flex flex-wrap justify-center ">
@@ -13,7 +13,7 @@ export default function SkillsGroup () {
                         key={index}
                         radius="sm"
                         className="border-none bg-transparent p-5">
-                    <div>{skill.image}</div>
+                        <div>{skill.image}</div>
                     </Card>)
                 })}
             </div>
