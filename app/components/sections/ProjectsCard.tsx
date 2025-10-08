@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react'
 import {
     Button,
@@ -9,11 +11,10 @@ import {
 } from "@nextui-org/react";
 import Link from "next/link";
 import { Project } from '../../data/projects';
-import CookieUnlikeIcon from '../icons/CookieUnlikeIcon';
-import CookieLikeIcon from '../icons/CookieLikeIcon';
+import { HiHeart, HiOutlineHeart } from "react-icons/hi";
 
 export default function ProjectsCard({ project }: { project: Project }) {
-    const [isCookieLike, setIsCookieLike] = React.useState(false);
+    const [isFavorite, setIsFavorite] = React.useState(false);
 
     return (
         <Card
@@ -59,9 +60,13 @@ export default function ProjectsCard({ project }: { project: Project }) {
                     size="sm"
                     radius="sm"
                     className="bg-transparent"
-                    onPress={() => setIsCookieLike(!isCookieLike)}
+                    onPress={() => setIsFavorite(!isFavorite)}
                 >
-                    {isCookieLike ? <CookieLikeIcon /> : <CookieUnlikeIcon />}
+                    {isFavorite ? (
+                        <HiHeart className="text-red-500" size={20} />
+                    ) : (
+                        <HiOutlineHeart size={20} />
+                    )}
                 </Button>
             </CardFooter>
         </Card>
