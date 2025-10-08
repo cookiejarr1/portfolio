@@ -15,16 +15,16 @@ export default function Home() {
       <div>
         <NavigationBar />
       </div>
-      <div className="px-14 ">
+      <div id="about" className="px-14 ">
         <About />
       </div>
-      <div className="px-14 ">
+      <div id="skills" className="px-14 ">
         <SkillsGroup />
       </div>
-      <div className="px-14 ">
+      <div id="projects" className="px-14 ">
         <ProjectsGroup />
       </div>
-      <div className="px-14 ">
+      <div id="contact" className="px-14 ">
         <Contact />
       </div>
       <div ref={scrollToRef}>
