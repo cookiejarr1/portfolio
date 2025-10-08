@@ -6,6 +6,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --border: 0 0% 89.8%;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,7 +14,16 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+    --border: 0 0% 14.9%;
   }
+}
+
+.dark {
+  --border: 0 0% 14.9%;
+}
+
+.light {
+  --border: 0 0% 89.8%;
 }
 
 body {

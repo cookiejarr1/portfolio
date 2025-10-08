@@ -11,7 +11,7 @@ import {
   Button,
   Image,
 } from "@nextui-org/react";
-import Contacts from "../components/icons/ContactsIcon";
+import { FiGithub, FiLinkedin, FiTwitter, FiMail } from "react-icons/fi";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -166,18 +166,41 @@ export default function ContactPage() {
 
                   <div>
                     <h4 className="font-semibold mb-3">Find me on</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {Contacts.map((contact) => (
-                        <Button
-                          key={contact.name}
-                          variant="bordered"
-                          size="sm"
-                          startContent={contact.image}
-                          className="text-foreground"
-                        >
-                          {contact.name}
-                        </Button>
-                      ))}
+                    <div className="flex flex-wrap gap-4">
+                      <a
+                        href="https://github.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-foreground/60 hover:text-foreground transition-colors"
+                      >
+                        <FiGithub size={20} />
+                        <span className="text-sm">GitHub</span>
+                      </a>
+                      <a
+                        href="https://linkedin.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-foreground/60 hover:text-foreground transition-colors"
+                      >
+                        <FiLinkedin size={20} />
+                        <span className="text-sm">LinkedIn</span>
+                      </a>
+                      <a
+                        href="https://twitter.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-foreground/60 hover:text-foreground transition-colors"
+                      >
+                        <FiTwitter size={20} />
+                        <span className="text-sm">Twitter</span>
+                      </a>
+                      <a
+                        href="mailto:hello@cookie.dev"
+                        className="flex items-center gap-2 text-foreground/60 hover:text-foreground transition-colors"
+                      >
+                        <FiMail size={20} />
+                        <span className="text-sm">Email</span>
+                      </a>
                     </div>
                   </div>
                 </div>
