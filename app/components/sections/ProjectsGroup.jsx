@@ -1,6 +1,6 @@
 "use client";
 
-import React, {useState } from "react";
+import React, { useState } from "react";
 import {
   Button,
   ButtonGroup,
@@ -10,156 +10,66 @@ import {
   DropdownItem,
 } from "@nextui-org/react";
 import ProjectsCard from "./ProjectsCard";
+import { projects } from "../../data/projects";
 
 export default function ProjectsGroup() {
-  const projects = [
-    {
-      name: "Project",
-      id: 5,
-      dateCreated: "09-03-2022", //mm-dd-yyyy
-      dateUpdated: "12-01-2023",
-      images: [],
-      links: [],
-    },
-    {
-      name: "Project",
-      id: 4,
-      dateCreated: "27-06-2021",
-      dateUpdated: "12-05-2022",
-      images: [],
-      links: [],
-    },
-    {
-      name: "Project",
-      id: 3,
-      dateCreated: "18-03-2020",
-      dateUpdated: "08-22-2020",
-      images: [],
-      links: [],
-    },
-    {
-      name: "Project",
-      id: 2,
-      dateCreated: "07-07-2019",
-      dateUpdated: "05-11-2019",
-      images: [],
-      links: [],
-    },
-    {
-      name: "Project",
-      id: 1,
-      dateCreated: "11-08-2013",
-      dateUpdated: "11-08-2013",
-      images: [],
-      links: [],
-    },
-    {
-      name: "Project",
-      id: 1,
-      dateCreated: "11-08-2013",
-      dateUpdated: "11-08-2013",
-      images: [],
-      links: [],
-    },
-    {
-      name: "Project",
-      id: 1,
-      dateCreated: "11-08-2013",
-      dateUpdated: "11-08-2017",
-      images: [],
-      links: [],
-    },
-    {
-      name: "Project",
-      id: 1,
-      dateCreated: "11-08-2013",
-      dateUpdated: "11-08-2013",
-      images: [],
-      links: [],
-    },
-    {
-      name: "Project",
-      id: 1,
-      dateCreated: "11-08-2013",
-      dateUpdated: "11-08-2013",
-      images: [],
-      links: [],
-    },
-    {
-      name: "Project",
-      id: 1,
-      dateCreated: "11-08-2013",
-      dateUpdated: "11-08-2018",
-      images: [],
-      links: [],
-    },
-    {
-      name: "Project",
-      id: 1,
-      dateCreated: "11-08-2013",
-      dateUpdated: "11-08-2013",
-      images: [],
-      links: [],
-    },
-    {
-      name: "Project",
-      id: 1,
-      dateCreated: "11-08-2013",
-      dateUpdated: "11-08-2013",
-      images: [],
-      links: [],
-    },
-    {
-      name: "Project",
-      id: 1,
-      dateCreated: "11-08-2013",
-      dateUpdated: "11-08-2013",
-      images: [],
-      links: [],
-    },
-    {
-      name: "Project",
-      id: 1,
-      dateCreated: "11-08-2013",
-      dateUpdated: "11-08-2014",
-      images: [],
-      links: [],
-    },
-  ];
   const currentYear = new Date().getFullYear();
   const years = ["All"];
+  const months = [
+    "All",
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
 
   for (let i = currentYear; i >= 2013; i--) {
     years.push(i.toString());
   }
 
-  const [selectedKeys, setSelectedKeys] = useState(new Set([years[0]]));
+  const [selectedYear, setSelectedYear] = useState(new Set(["All"]));
+  const [selectedMonth, setSelectedMonth] = useState(new Set(["All"]));
 
-  const filtered = projects.filter(function (item) {
-    return selectedKeys.has(
-      new Date(item.dateUpdated).getFullYear().toString()
-    );
+  const filtered = projects.filter((item) => {
+    const itemDate = new Date(item.dateUpdated);
+    const itemYear = itemDate.getFullYear().toString();
+    const itemMonth = months[itemDate.getMonth() + 1];
+
+    const yearMatch =
+      selectedYear.has("All") || selectedYear.has(itemYear);
+    const monthMatch =
+      selectedMonth.has("All") || selectedMonth.has(itemMonth);
+
+    return yearMatch && monthMatch;
   });
 
   return (
     <div className="px-40 py-14">
-      <div className="px-10 py-7 flex justify-between ">
+      <div className="px-10 py-7 flex justify-between items-center">
         <p className="text-2xl font-bold">Projects</p>
-        <ButtonGroup variant="flat">
+        <div className="flex gap-2">
           <Dropdown className="bg-primary">
             <DropdownTrigger>
               <Button variant="bordered" className="capitalize">
-                {selectedKeys}
+                Year: {Array.from(selectedYear)[0]}
               </Button>
             </DropdownTrigger>
             <DropdownMenu
-              aria-label="Projects by Year"
+              aria-label="Filter by Year"
               variant="bordered"
-              closeOnSelect={false}
+              closeOnSelect={true}
               disallowEmptySelection
               selectionMode="single"
-              selectedKeys={selectedKeys}
-              onSelectionChange={setSelectedKeys}
+              selectedKeys={selectedYear}
+              onSelectionChange={setSelectedYear}
               className="text-foreground"
             >
               {years.map((year) => (
@@ -173,25 +83,45 @@ export default function ProjectsGroup() {
               ))}
             </DropdownMenu>
           </Dropdown>
-        </ButtonGroup>
+          <Dropdown className="bg-primary">
+            <DropdownTrigger>
+              <Button variant="bordered" className="capitalize">
+                Month: {Array.from(selectedMonth)[0]}
+              </Button>
+            </DropdownTrigger>
+            <DropdownMenu
+              aria-label="Filter by Month"
+              variant="bordered"
+              closeOnSelect={true}
+              disallowEmptySelection
+              selectionMode="single"
+              selectedKeys={selectedMonth}
+              onSelectionChange={setSelectedMonth}
+              className="text-foreground"
+            >
+              {months.map((month) => (
+                <DropdownItem
+                  key={month}
+                  textValue={month}
+                  className="pt-2 text-content1"
+                >
+                  {month}
+                </DropdownItem>
+              ))}
+            </DropdownMenu>
+          </Dropdown>
+        </div>
       </div>
-      <div className="gap-7 flex flex-wrap justify-center ">
-        {selectedKeys.keys().next().value === "All"
-          ? projects.map((project, index) => {
-              return (
-                <ProjectsCard key={index} index={index} project={project} />
-              );
-            })
-          : filtered.map((project, index) => {
-              console.log(filtered);
-              return filtered ? (
-                <ProjectsCard key={index} index={index} project={project} />
-              ) : (
-                <div className="font-bold text-foreground">
-                  No Projects to Display
-                </div>
-              );
-            })}
+      <div className="gap-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        {filtered.length > 0 ? (
+          filtered.map((project) => (
+            <ProjectsCard key={project.id} project={project} />
+          ))
+        ) : (
+          <div className="col-span-full text-center py-10 font-bold text-foreground">
+            No Projects to Display
+          </div>
+        )}
       </div>
     </div>
   );
