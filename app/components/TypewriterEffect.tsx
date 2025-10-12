@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
+import GradientText from "./react-bits/GradientText";
 
-export default function TypewriterEffect({
-  words,
-  className = "",
-}) {
+export default function TypewriterEffect({ words, className = "" }) {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
-  const [typeSpeed, setTypeSpeed] = useState(100);
+  const [typeSpeed, setTypeSpeed] = useState(1200);
 
   useEffect(() => {
     const currentWord = words[currentWordIndex];
@@ -39,9 +37,16 @@ export default function TypewriterEffect({
   }, [currentText, isDeleting, currentWordIndex, words, typeSpeed]);
 
   return (
-    <span className={className}>
-      {currentText}
-      <span className="animate-pulse">|</span>
-    </span>
+    <>
+      <GradientText
+        colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+        animationSpeed={12}
+        showBorder={false}
+        className="font-black text-lg"
+      >
+        {currentText}
+        <span className="animate-pulse text-white">{"| "}</span>
+      </GradientText>
+    </>
   );
 }

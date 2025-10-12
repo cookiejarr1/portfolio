@@ -9,15 +9,15 @@ export interface SocialLink {
   icon: IconType
 }
 
-export const navSocialLinks: SocialLink[] = [
+export const socialLinks: SocialLink[] = [
   {
     name: "GitHub",
-    link: "https://github.com",
+    link: "https://github.com/cookiejarr1/portfolio",
     icon: FiGithub
   },
   {
     name: "LinkedIn",
-    link: "https://linkedin.com",
+    link: "https://www.linkedin.com/in/cyrus-layugan/",
     icon: FiLinkedin
   },
   {
@@ -28,34 +28,15 @@ export const navSocialLinks: SocialLink[] = [
 
 ];
 
-export const contactSocialLinks: SocialLink[] = [
+export const footerLinks: SocialLink[] = [
   {
     name: "GitHub",
-    link: "https://github.com",
+    link: "https://github.com/cookiejarr1/portfolio",
     icon: FiGithub
   },
   {
     name: "LinkedIn",
-    link: "https://linkedin.com",
-    icon: FiLinkedin
-  },
-  {
-    name: "Twitter",
-    link: "https://twitter.com",
-    icon: FiTwitter
-  },
-
-];
-
-export const footerSocialLinks: SocialLink[] = [
-  {
-    name: "GitHub",
-    link: "https://github.com",
-    icon: FiGithub
-  },
-  {
-    name: "LinkedIn",
-    link: "https://linkedin.com",
+    link: "https://www.linkedin.com/in/cyrus-layugan/",
     icon: FiLinkedin
   },
   {
@@ -65,7 +46,7 @@ export const footerSocialLinks: SocialLink[] = [
   },
   {
     name: "Email",
-    link: "mailto:hello@cookie.dev",
+    link: "mailto:jarodlayugan@gmail.com",
     icon: FiMail
   },
 

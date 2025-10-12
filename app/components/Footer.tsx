@@ -1,31 +1,12 @@
 import Link from "next/link";
-import {
-  FiGithub,
-  FiLinkedin,
-  FiTwitter,
-  FiMail,
-  FiHeart,
-} from "react-icons/fi";
-import { footerSocialLinks } from "../data/socials";
-import Socials from "./navigation/Socials";
+import { FiHeart } from "react-icons/fi";
+import { portfolio } from "../data/portfolio";
 import { routeLinks } from "../data/routes";
+import { footerLinks } from "../data/socials";
+import Socials from "./navigation/Socials";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-
-  const footerLinks = {
-    navigation: [
-      { name: "Home", href: "/" },
-      { name: "Projects", href: "/projects" },
-      { name: "Contact", href: "/contact" },
-    ],
-    social: [
-      { name: "GitHub", href: "https://github.com", icon: FiGithub },
-      { name: "LinkedIn", href: "https://linkedin.com", icon: FiLinkedin },
-      { name: "Twitter", href: "https://twitter.com", icon: FiTwitter },
-      { name: "Email", href: "mailto:hello@cookie.dev", icon: FiMail },
-    ],
-  };
 
   return (
     <footer id="footer" className="border-t border-border/40 bg-background">
@@ -42,18 +23,16 @@ export default function Footer() {
                   {"</>"}
                 </div>
                 <span className="text-xl font-bold text-foreground">
-                  COOKIE
+                  {portfolio.username}
                 </span>
               </Link>
               <p className="text-sm text-foreground/60 max-w-xs">
-                Building exceptional digital experiences with modern web
-                technologies. Passionate about creating elegant solutions to
-                complex problems.
+                {portfolio.footer}
               </p>
             </div>
 
             {/* Quick Links */}
-            <div className="space-y-4">
+            <div className="space-y-4 px-4">
               <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider">
                 Quick Links
               </h3>
@@ -77,7 +56,7 @@ export default function Footer() {
                 Connect
               </h3>
               <div className="flex space-x-4">
-                <Socials socialsLinks={footerSocialLinks} />
+                <Socials socialsLinks={footerLinks} />
               </div>
               <p className="text-sm text-foreground/60">
                 Let&apos;s build something amazing together!
@@ -89,7 +68,7 @@ export default function Footer() {
           <div className="mt-12 pt-8 border-t border-border/40">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <p className="text-sm text-foreground/60">
-                © {currentYear} COOKIE. All rights reserved.
+                © {currentYear} {portfolio.username}. All rights reserved.
               </p>
               <p className="text-sm text-foreground/60 flex items-center gap-1">
                 Made with <FiHeart className="text-red-500" size={14} /> using

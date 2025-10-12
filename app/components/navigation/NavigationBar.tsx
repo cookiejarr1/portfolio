@@ -1,5 +1,5 @@
 import { routeLinks } from "@/app/data/routes";
-import { navSocialLinks } from "@/app/data/socials";
+import { socialLinks } from "@/app/data/socials";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -7,6 +7,7 @@ import { HiMenuAlt3, HiX } from "react-icons/hi";
 import ThemeSwitcher from "../ThemeSwitcher";
 import Socials from "./Socials";
 import PageRoutes from "./PageRoutes";
+import { portfolio } from "@/app/data/portfolio";
 
 export default function NavigationBar() {
   const pathname = usePathname();
@@ -24,7 +25,7 @@ export default function NavigationBar() {
               </div>
             </div>
             <span className="text-xl font-bold text-foreground hidden sm:block">
-              COOKIE
+              {portfolio.username}
             </span>
           </Link>
 
@@ -35,7 +36,7 @@ export default function NavigationBar() {
 
           {/* Right Side - Social Links & Theme Switcher */}
           <div className="hidden md:flex items-center space-x-4">
-            <Socials socialsLinks={navSocialLinks} />
+            <Socials socialsLinks={socialLinks} />
             <div className="h-6 w-px bg-border/40" />
             <ThemeSwitcher />
           </div>
@@ -60,7 +61,7 @@ export default function NavigationBar() {
               <PageRoutes routes={routeLinks} />
               <div className="h-px bg-border/40 my-2" />
               <div className="flex items-center space-x-4 px-4 py-2">
-                <Socials socialsLinks={navSocialLinks} />
+                <Socials socialsLinks={socialLinks} />
               </div>
             </div>
           </div>

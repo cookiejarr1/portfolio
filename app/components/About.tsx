@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { jobTitles } from "../data/jobs";
 import TypewriterEffect from "./TypewriterEffect";
-import { about } from "../data/about";
+import { portfolio } from "../data/portfolio";
 import Profile from "./Profile";
 
 export default function About() {
@@ -18,21 +18,20 @@ export default function About() {
 
           {/* Name */}
           <div className="font-bold text-foreground/100 text-3xl md:text-4xl">
-            {about.name}
+            {portfolio.name}
             {/* Typewriter Job Title */}
             <span className="block text-lg text-foreground/80 min-h-[1.5rem] mt-2">
               <TypewriterEffect
                 words={jobTitles}
-                className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-blue-500"
               />
             </span>
           </div>
 
           {/* Description */}
           <div className="space-y-1 max-w-md">
-            <div className="text-medium font-medium">{about.tagLine}</div>
+            <div className="text-medium font-medium">{portfolio.tagLine}</div>
             <div className="text-small text-foreground/70">
-              {about.description}
+              {portfolio.description}
             </div>
           </div>
 
@@ -44,7 +43,10 @@ export default function About() {
               as={Link}
               href="/projects"
               color="primary"
-              className="dark:text-foreground font-medium"
+              className="
+              border border-transparent 
+              dark:text-foreground shadow-md dark:hover:shadow-blue-500/50 
+              font-medium transition-all ease-in-out duration-300"
             >
               View Projects
             </Button>
