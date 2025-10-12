@@ -1,10 +1,11 @@
+import { Route } from "@/app/data/routes";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export default function PageRoutes({ routes }) {
+export default function PageRoutes({ routes }: { routes: Route[] }) {
   const pathname = usePathname();
 
-  const isActive = (href) => {
+  const isActive = (href: string): boolean => {
     if (href === "/") return pathname === "/";
     return pathname.startsWith(href);
   };

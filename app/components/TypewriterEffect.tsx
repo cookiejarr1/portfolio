@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from "react";
 
-export interface TypewriterEffectProps {
-  words: string[];
-  className?: string;
-}
-
 export default function TypewriterEffect({
   words,
   className = "",
-}: TypewriterEffectProps) {
+}) {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);

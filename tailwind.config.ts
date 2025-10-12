@@ -31,7 +31,7 @@ module.exports = {
             background: "#222831",
             primary: {
               DEFAULT: "#192f67",
-              foreground: "#1e293b",
+              foreground: "#f2f2f3",
             },
           },
         },

@@ -1,6 +1,4 @@
 "use client";
-
-import React from "react";
 import {
   Button,
   Card,
@@ -12,9 +10,10 @@ import {
 import Link from "next/link";
 import { Project } from "@/app/data/projects";
 import { HiHeart, HiOutlineHeart } from "react-icons/hi";
+import { useState } from "react";
 
-export default function Project({ project }) {
-  const [isFavorite, setIsFavorite] = React.useState(false);
+export default function Project({ project } : {project: Project}) {
+  const [isFavorite, setIsFavorite] = useState(false);
 
   return (
     <Card

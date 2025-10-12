@@ -1,6 +1,5 @@
 import Image from "next/image";
 import UnknownCookie from "@/app/assets/icons/unknown-cookie.png";
-import { Skill } from "@/app/data/skills";
 
 export default function Skill({ skill }) {
   return (
@@ -8,7 +7,7 @@ export default function Skill({ skill }) {
       className="
       bg-transparent border border-transparent px-12 py-6 rounded-lg flex-shrink-0 cursor-pointer group
     hover:border-slate-300 hover:border hover:shadow-sm hover:bg-slate-200 
-    dark:hover:border-slate-500 dark:bg-slate-700
+    hover:dark:border-sky-700 dark:bg-slate-700
       "
     >
       <span className="flex flex-col gap-2 items-center justify-center group-hover:scale-110 transition ease-in-out delay-50 duration-300">

@@ -4,7 +4,7 @@ A modern, fully-featured portfolio website built with Next.js, TypeScript, and N
 
 ## 🛠️ Technologies Used
 
-- **Framework**: [Next.js 13](https://nextjs.org/) (App Router)
+- **Framework**: [Next.js 14](https://nextjs.org/) (App Router)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
 - **UI Library**: [NextUI](https://nextui.org/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
