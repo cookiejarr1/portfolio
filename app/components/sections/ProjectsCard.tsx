@@ -20,7 +20,7 @@ export default function ProjectsCard({ project }: { project: Project }) {
         <Card
             shadow="sm"
             className="border-none bg-background/60 dark:bg-default-100/50"
-            isPressable
+            // isPressable
         >
             <Link href={`/projects/${project.id}`}>
                 <Image

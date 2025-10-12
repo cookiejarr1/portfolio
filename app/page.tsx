@@ -2,7 +2,7 @@
 
 import NavigationBar from "./components/sections/NavigationBar";
 import About from "./components/sections/About";
-import SkillsGroup from "./components/sections/SkillsGroup";
+import SkillsGroup from "./components/sections/skills/SkillsGroup";
 import ProjectsGroup from "./components/sections/ProjectsGroup";
 import Contact from "./components/sections/Contact";
 import Footer from "./components/sections/Footer";
@@ -11,25 +11,25 @@ import { useRef } from "react";
 export default function Home() {
   const scrollToRef = useRef<HTMLInputElement>(null);
   return (
-    <div className="text-foreground bg-background">
-      <div>
+    <main className="text-foreground bg-background">
+      <section>
         <NavigationBar />
-      </div>
-      <div id="about" className="px-14 ">
+      </section>
+      <section id="about" className="px-14 ">
         <About />
-      </div>
-      <div id="skills" className="px-14 ">
+      </section>
+      <section id="skills" className="px-14 ">
         <SkillsGroup />
-      </div>
-      <div id="projects" className="px-14 ">
+      </section>
+      <section id="projects" className="px-14 ">
         <ProjectsGroup />
-      </div>
-      <div id="contact" className="px-14 ">
+      </section>
+      <section id="contact" className="px-14 ">
         <Contact />
-      </div>
-      <div ref={scrollToRef}>
+      </section>
+      <section ref={scrollToRef}>
         <Footer />
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }

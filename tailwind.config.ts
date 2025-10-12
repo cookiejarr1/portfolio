@@ -28,7 +28,7 @@ module.exports = {
         dark: {
           colors: {
             foreground: "#f2f2f3",
-            background: "#161122",
+            background: "#222831",
             primary: {
               DEFAULT: "#192f67",
               foreground: "#0E0C07",
