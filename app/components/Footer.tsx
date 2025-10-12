@@ -1,8 +1,14 @@
-"use client";
-
-import React from "react";
 import Link from "next/link";
-import { FiGithub, FiLinkedin, FiTwitter, FiMail, FiHeart } from "react-icons/fi";
+import {
+  FiGithub,
+  FiLinkedin,
+  FiTwitter,
+  FiMail,
+  FiHeart,
+} from "react-icons/fi";
+import { footerSocialLinks } from "../data/socials";
+import Socials from "./navigation/Socials";
+import { routeLinks } from "../data/routes";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -22,21 +28,27 @@ export default function Footer() {
   };
 
   return (
-    <footer className="border-t border-border/40 bg-background">
+    <footer id="footer" className="border-t border-border/40 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="py-12 md:py-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             {/* Brand Section */}
             <div className="space-y-4">
-              <Link href="/" className="inline-flex items-center space-x-2 group">
+              <Link
+                href="/"
+                className="inline-flex items-center space-x-2 group"
+              >
                 <div className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                   {"</>"}
                 </div>
-                <span className="text-xl font-bold text-foreground">COOKIE</span>
+                <span className="text-xl font-bold text-foreground">
+                  COOKIE
+                </span>
               </Link>
               <p className="text-sm text-foreground/60 max-w-xs">
-                Building exceptional digital experiences with modern web technologies.
-                Passionate about creating elegant solutions to complex problems.
+                Building exceptional digital experiences with modern web
+                technologies. Passionate about creating elegant solutions to
+                complex problems.
               </p>
             </div>
 
@@ -46,7 +58,7 @@ export default function Footer() {
                 Quick Links
               </h3>
               <ul className="space-y-2">
-                {footerLinks.navigation.map((link) => (
+                {routeLinks.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
@@ -65,21 +77,7 @@ export default function Footer() {
                 Connect
               </h3>
               <div className="flex space-x-4">
-                {footerLinks.social.map((social) => {
-                  const Icon = social.icon;
-                  return (
-                    <a
-                      key={social.name}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-foreground/60 hover:text-foreground transition-colors"
-                      aria-label={social.name}
-                    >
-                      <Icon size={20} />
-                    </a>
-                  );
-                })}
+                <Socials socialsLinks={footerSocialLinks} />
               </div>
               <p className="text-sm text-foreground/60">
                 Let&apos;s build something amazing together!
@@ -94,7 +92,8 @@ export default function Footer() {
                 © {currentYear} COOKIE. All rights reserved.
               </p>
               <p className="text-sm text-foreground/60 flex items-center gap-1">
-                Made with <FiHeart className="text-red-500" size={14} /> using Next.js & TypeScript
+                Made with <FiHeart className="text-red-500" size={14} /> using
+                Next.js & TypeScript
               </p>
             </div>
           </div>

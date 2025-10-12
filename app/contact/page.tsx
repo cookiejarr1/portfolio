@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import NavigationBar from "../components/sections/NavigationBar";
-import Footer from "../components/sections/Footer";
+import NavigationBar from "../components/navigation/NavigationBar";
+import Footer from "../components/Footer";
 import {
   Card,
   CardBody,
@@ -19,7 +19,9 @@ export default function ContactPage() {
     email: "",
     message: "",
   });
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -44,7 +46,9 @@ export default function ContactPage() {
         setTimeout(() => setStatus("idle"), 5000);
       } else {
         setStatus("error");
-        setErrorMessage(data.error || "Failed to send message. Please try again.");
+        setErrorMessage(
+          data.error || "Failed to send message. Please try again."
+        );
       }
     } catch (error) {
       setStatus("error");
@@ -151,7 +155,9 @@ export default function ContactPage() {
                   />
                   <div>
                     <h3 className="text-2xl font-bold">Cyrus Jarod Layugan</h3>
-                    <p className="text-foreground/70">Aspiring Software Engineer</p>
+                    <p className="text-foreground/70">
+                      Aspiring Software Engineer
+                    </p>
                   </div>
                 </div>
 
@@ -159,8 +165,8 @@ export default function ContactPage() {
                   <div>
                     <h4 className="font-semibold mb-2">Let&apos;s Connect</h4>
                     <p className="text-foreground/70 text-sm">
-                      I&apos;m always open to discussing new projects, creative ideas,
-                      or opportunities to be part of your visions.
+                      I&apos;m always open to discussing new projects, creative
+                      ideas, or opportunities to be part of your visions.
                     </p>
                   </div>
 

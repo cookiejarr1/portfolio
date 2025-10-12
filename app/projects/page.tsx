@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import NavigationBar from "../components/sections/NavigationBar";
-import Footer from "../components/sections/Footer";
-import ProjectsGroup from "../components/sections/ProjectsGroup";
+import NavigationBar from "../components/navigation/NavigationBar";
+import Footer from "../components/Footer";
+import ProjectsGroup from "./components/ProjectsGroup";
 
 export default function ProjectsPage() {
   return (

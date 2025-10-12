@@ -3,8 +3,8 @@
 import React from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import NavigationBar from "../../components/sections/NavigationBar";
-import Footer from "../../components/sections/Footer";
+import NavigationBar from "../../components/navigation/NavigationBar";
+import Footer from "../../components/Footer";
 import { projects } from "../../data/projects";
 import { Card, CardBody, Button, Chip, Divider } from "@nextui-org/react";
 import ReactMarkdown from "react-markdown";
@@ -49,7 +49,7 @@ export default function ProjectDetailPage() {
               <p className="text-lg text-foreground/80 mb-4">
                 {project.description}
               </p>
-              
+
               {/* Tags */}
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.tags.map((tag) => (
@@ -71,7 +71,9 @@ export default function ProjectDetailPage() {
               </div>
 
               {/* Links */}
-              {(project.links.github || project.links.live || project.links.demo) && (
+              {(project.links.github ||
+                project.links.live ||
+                project.links.demo) && (
                 <div className="flex gap-2 mb-6">
                   {project.links.github && (
                     <Button
@@ -119,28 +121,46 @@ export default function ProjectDetailPage() {
                 rehypePlugins={[rehypeHighlight]}
                 components={{
                   h1: ({ node, ...props }) => (
-                    <h1 className="text-3xl font-bold mt-8 mb-4 text-foreground" {...props} />
+                    <h1
+                      className="text-3xl font-bold mt-8 mb-4 text-foreground"
+                      {...props}
+                    />
                   ),
                   h2: ({ node, ...props }) => (
-                    <h2 className="text-2xl font-bold mt-6 mb-3 text-foreground" {...props} />
+                    <h2
+                      className="text-2xl font-bold mt-6 mb-3 text-foreground"
+                      {...props}
+                    />
                   ),
                   h3: ({ node, ...props }) => (
-                    <h3 className="text-xl font-bold mt-4 mb-2 text-foreground" {...props} />
+                    <h3
+                      className="text-xl font-bold mt-4 mb-2 text-foreground"
+                      {...props}
+                    />
                   ),
                   p: ({ node, ...props }) => (
-                    <p className="mb-4 text-foreground/80 leading-7" {...props} />
+                    <p
+                      className="mb-4 text-foreground/80 leading-7"
+                      {...props}
+                    />
                   ),
                   ul: ({ node, ...props }) => (
-                    <ul className="list-disc list-inside mb-4 text-foreground/80" {...props} />
+                    <ul
+                      className="list-disc list-inside mb-4 text-foreground/80"
+                      {...props}
+                    />
                   ),
                   ol: ({ node, ...props }) => (
-                    <ol className="list-decimal list-inside mb-4 text-foreground/80" {...props} />
+                    <ol
+                      className="list-decimal list-inside mb-4 text-foreground/80"
+                      {...props}
+                    />
                   ),
                   li: ({ node, ...props }) => (
                     <li className="mb-2 text-foreground/80" {...props} />
                   ),
                   code: ({ node, className, children, ...props }) => {
-                    const match = /language-(\w+)/.exec(className || '');
+                    const match = /language-(\w+)/.exec(className || "");
                     return match ? (
                       <code className={className} {...props}>
                         {children}
@@ -155,7 +175,10 @@ export default function ProjectDetailPage() {
                     );
                   },
                   pre: ({ node, ...props }) => (
-                    <pre className="bg-primary/10 p-4 rounded-lg overflow-x-auto mb-4" {...props} />
+                    <pre
+                      className="bg-primary/10 p-4 rounded-lg overflow-x-auto mb-4"
+                      {...props}
+                    />
                   ),
                   a: ({ node, ...props }) => (
                     <a
@@ -167,7 +190,8 @@ export default function ProjectDetailPage() {
                   ),
                 }}
               >
-                {project.content || "No detailed information available for this project."}
+                {project.content ||
+                  "No detailed information available for this project."}
               </ReactMarkdown>
             </div>
           </CardBody>
