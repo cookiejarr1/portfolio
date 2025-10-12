@@ -31,7 +31,7 @@ export default function SkillsGroup() {
           className="flex gap-6 py-2 animate-marquee-right hover:pause-animation"
           style={{ width: "max-content" }}
         >
-          {duplicatedSkills.map((skill, index) => (
+          {duplicatedSkills.reverse().map((skill, index) => (
             <Skill key={`row2-${index}`} skill={skill} />
           ))}
         </div>

@@ -4,8 +4,14 @@ import { Skill } from "@/app/data/skills";
 
 export default function Skill({ skill }) {
   return (
-    <div className="bg-transparent border border-transparent dark:hover:border-slate-500 hover:border-slate-300 hover:border hover:shadow-sm dark:bg-slate-700 dark:text-white px-12 py-6 rounded-lg flex-shrink-0">
-      <span className="flex flex-col gap-2 items-center justify-center cursor-pointer hover:scale-110 transition ease-in-out delay-50 duration-300">
+    <div
+      className="
+      bg-transparent border border-transparent px-12 py-6 rounded-lg flex-shrink-0 cursor-pointer group
+    hover:border-slate-300 hover:border hover:shadow-sm hover:bg-slate-200 
+    dark:hover:border-slate-500 dark:bg-slate-700
+      "
+    >
+      <span className="flex flex-col gap-2 items-center justify-center group-hover:scale-110 transition ease-in-out delay-50 duration-300">
         {skill.link ? (
           <Image
             src={skill.link}
@@ -29,7 +35,7 @@ export default function Skill({ skill }) {
             loading="lazy"
           />
         )}
-        <span className="text-base font-medium break-normal whitespace-pre-line min-w-fit text-center text-slate-800">
+        <span className="text-base font-medium break-normal whitespace-pre-line min-w-fit text-center text-slate-800 dark:text-foreground">
           {skill.name}
         </span>
       </span>

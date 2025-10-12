@@ -221,10 +221,10 @@ export const skills: Skill[] = [
     link: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg",
   },
   // Selenium
-  {
-    name: "Selenium",
-    link: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/selenium/selenium-original.svg",
-  },
+  // {
+  //   name: "Selenium",
+  //   link: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/selenium/selenium-original.svg",
+  // },
   // Slack
   {
     name: "Slack",
