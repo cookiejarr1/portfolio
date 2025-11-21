@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import UnknownCookie from "@/app/assets/icons/unknown-cookie.png";
 

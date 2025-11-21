@@ -21,13 +21,13 @@ module.exports = {
       },
       keyframes: {
         gradient: {
-          '0%': { backgroundPosition: '0% 50%' },
-          '50%': { backgroundPosition: '100% 50%' },
-          '100%': { backgroundPosition: '0% 50%' },
+          "0%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+          "100%": { backgroundPosition: "0% 50%" },
         },
       },
       animation: {
-        gradient: 'gradient 8s linear infinite'
+        gradient: "gradient 8s linear infinite",
       },
     },
   },
@@ -48,7 +48,7 @@ module.exports = {
         light: {
           colors: {
             foreground: "#1e293b",
-            background: '#f8f6f1',
+            background: "#f8f6f1",
             primary: {
               DEFAULT: "#305AC5",
               foreground: "#F8F6F1",
@@ -56,5 +56,6 @@ module.exports = {
           },
         },
       },
-    }),],
-}
+    }),
+  ],
+};

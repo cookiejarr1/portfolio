@@ -1,7 +1,6 @@
 export const jobTitles: string[] = [
-  "Full-Stack Developer",
+  "Fullstack Developer",
   "UI/UX Enthusiast",
-  "Problem Solver",
   "Software Engineer",
   "React Developer",
   "Flutter Developer",

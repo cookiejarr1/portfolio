@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import GradientText from "./react-bits/GradientText";
 
-export default function TypewriterEffect({ words, className = "" }) {
+export default function TypewriterEffect({ words }) {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);

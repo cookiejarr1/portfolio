@@ -46,9 +46,7 @@ export default function ProjectDetailPage() {
             {/* Project Header */}
             <div className="mb-6">
               <h1 className="text-4xl font-bold mb-3">{project.title}</h1>
-              <p className="text-lg text-foreground/80 mb-4">
-                {project.description}
-              </p>
+              <p className="text-lg text-foreground/80 mb-4">{project.description}</p>
 
               {/* Tags */}
               <div className="flex flex-wrap gap-2 mb-4">
@@ -61,19 +59,13 @@ export default function ProjectDetailPage() {
 
               {/* Metadata */}
               <div className="flex gap-4 text-sm text-foreground/60 mb-4">
-                <span>
-                  Created: {new Date(project.dateCreated).toLocaleDateString()}
-                </span>
+                <span>Created: {new Date(project.dateCreated).toLocaleDateString()}</span>
                 <span>•</span>
-                <span>
-                  Updated: {new Date(project.dateUpdated).toLocaleDateString()}
-                </span>
+                <span>Updated: {new Date(project.dateUpdated).toLocaleDateString()}</span>
               </div>
 
               {/* Links */}
-              {(project.links.github ||
-                project.links.live ||
-                project.links.demo) && (
+              {(project.links.github || project.links.live || project.links.demo) && (
                 <div className="flex gap-2 mb-6">
                   {project.links.github && (
                     <Button
@@ -120,46 +112,26 @@ export default function ProjectDetailPage() {
                 remarkPlugins={[remarkGfm]}
                 rehypePlugins={[rehypeHighlight]}
                 components={{
-                  h1: ({ node, ...props }) => (
-                    <h1
-                      className="text-3xl font-bold mt-8 mb-4 text-foreground"
-                      {...props}
-                    />
+                  h1: ({ ...props }) => (
+                    <h1 className="text-3xl font-bold mt-8 mb-4 text-foreground" {...props} />
                   ),
-                  h2: ({ node, ...props }) => (
-                    <h2
-                      className="text-2xl font-bold mt-6 mb-3 text-foreground"
-                      {...props}
-                    />
+                  h2: ({ ...props }) => (
+                    <h2 className="text-2xl font-bold mt-6 mb-3 text-foreground" {...props} />
                   ),
-                  h3: ({ node, ...props }) => (
-                    <h3
-                      className="text-xl font-bold mt-4 mb-2 text-foreground"
-                      {...props}
-                    />
+                  h3: ({ ...props }) => (
+                    <h3 className="text-xl font-bold mt-4 mb-2 text-foreground" {...props} />
                   ),
-                  p: ({ node, ...props }) => (
-                    <p
-                      className="mb-4 text-foreground/80 leading-7"
-                      {...props}
-                    />
+                  p: ({ ...props }) => (
+                    <p className="mb-4 text-foreground/80 leading-7" {...props} />
                   ),
-                  ul: ({ node, ...props }) => (
-                    <ul
-                      className="list-disc list-inside mb-4 text-foreground/80"
-                      {...props}
-                    />
+                  ul: ({ ...props }) => (
+                    <ul className="list-disc list-inside mb-4 text-foreground/80" {...props} />
                   ),
-                  ol: ({ node, ...props }) => (
-                    <ol
-                      className="list-decimal list-inside mb-4 text-foreground/80"
-                      {...props}
-                    />
+                  ol: ({ ...props }) => (
+                    <ol className="list-decimal list-inside mb-4 text-foreground/80" {...props} />
                   ),
-                  li: ({ node, ...props }) => (
-                    <li className="mb-2 text-foreground/80" {...props} />
-                  ),
-                  code: ({ node, className, children, ...props }) => {
+                  li: ({ ...props }) => <li className="mb-2 text-foreground/80" {...props} />,
+                  code: ({ className, children, ...props }) => {
                     const match = /language-(\w+)/.exec(className || "");
                     return match ? (
                       <code className={className} {...props}>
@@ -174,13 +146,10 @@ export default function ProjectDetailPage() {
                       </code>
                     );
                   },
-                  pre: ({ node, ...props }) => (
-                    <pre
-                      className="bg-primary/10 p-4 rounded-lg overflow-x-auto mb-4"
-                      {...props}
-                    />
+                  pre: ({ ...props }) => (
+                    <pre className="bg-primary/10 p-4 rounded-lg overflow-x-auto mb-4" {...props} />
                   ),
-                  a: ({ node, ...props }) => (
+                  a: ({ ...props }) => (
                     <a
                       className="text-primary hover:underline"
                       target="_blank"
@@ -190,8 +159,7 @@ export default function ProjectDetailPage() {
                   ),
                 }}
               >
-                {project.content ||
-                  "No detailed information available for this project."}
+                {project.content || "No detailed information available for this project."}
               </ReactMarkdown>
             </div>
           </CardBody>

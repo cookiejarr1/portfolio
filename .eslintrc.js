@@ -8,8 +8,7 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
-    "plugin:prettier/recommended",
-    "prettier"
+    "prettier",
   ],
   parserOptions: {
     project: "./tsconfig.json",
@@ -17,6 +16,7 @@ module.exports = {
   rules: {
     "@typescript-eslint/no-unused-vars": ["error"],
     "react/react-in-jsx-scope": "off", // Not needed with Next.js
+    "react/prop-types": "off",
     "react/jsx-filename-extension": [1, { extensions: [".tsx"] }],
   },
 };

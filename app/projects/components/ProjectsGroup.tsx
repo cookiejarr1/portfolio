@@ -1,14 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  Button,
-  ButtonGroup,
-  Dropdown,
-  DropdownTrigger,
-  DropdownMenu,
-  DropdownItem,
-} from "@nextui-org/react";
+import { Button, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from "@nextui-org/react";
 import Project from "./Project";
 import { projects } from "@/app/data/projects";
 
@@ -50,13 +43,15 @@ export default function ProjectsGroup() {
   });
 
   return (
-    <section id="projects" className="mx-0 md:mx-14 px-4 md:px-40 py-14">
-      <div className="px-10 py-7 flex justify-between items-center">
-        <p className="text-2xl font-bold">Projects</p>
+    <section id="projects" className="relative z-10 mx-0 md:mx-14 px-4 md:px-40 py-14">
+      <div className="px-0 py-7 flex justify-between items-center">
+        <p className="text-3xl font-medium text-black dark:text-white">
+          {"What projects I'm working on"}
+        </p>
         <div className="flex gap-2">
-          <Dropdown className="bg-primary">
+          <Dropdown className="bg-gray-700">
             <DropdownTrigger>
-              <Button variant="bordered" className="capitalize">
+              <Button variant="bordered" className="capitalize font-normal text-sm">
                 Year: {Array.from(selectedYear)[0]}
               </Button>
             </DropdownTrigger>
@@ -71,19 +66,15 @@ export default function ProjectsGroup() {
               className="text-foreground"
             >
               {years.map((year) => (
-                <DropdownItem
-                  key={year}
-                  textValue={year}
-                  className="pt-2 text-content1"
-                >
+                <DropdownItem key={year} textValue={year} className="pt-2 text-white">
                   {year}
                 </DropdownItem>
               ))}
             </DropdownMenu>
           </Dropdown>
-          <Dropdown className="bg-primary">
+          <Dropdown className="bg-gray-700">
             <DropdownTrigger>
-              <Button variant="bordered" className="capitalize">
+              <Button variant="bordered" className="capitalize font-normal text-sm">
                 Month: {Array.from(selectedMonth)[0]}
               </Button>
             </DropdownTrigger>
@@ -98,11 +89,7 @@ export default function ProjectsGroup() {
               className="text-foreground"
             >
               {months.map((month) => (
-                <DropdownItem
-                  key={month}
-                  textValue={month}
-                  className="pt-2 text-content1"
-                >
+                <DropdownItem key={month} textValue={month} className="pt-2 text-white">
                   {month}
                 </DropdownItem>
               ))}
@@ -110,17 +97,17 @@ export default function ProjectsGroup() {
           </Dropdown>
         </div>
       </div>
-      <div className="gap-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {filtered.length > 0 ? (
-          filtered.map((project) => (
+      {filtered.length > 0 ? (
+        <div className="gap-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {filtered.map((project) => (
             <Project key={project.id} project={project} />
-          ))
-        ) : (
-          <div className="col-span-full text-center py-10 font-bold text-foreground">
-            No Projects to Display
-          </div>
-        )}
-      </div>
+          ))}
+        </div>
+      ) : (
+        <div className="pt-16 pb-10 h-72 align-middle">
+          <p className="text-center font-medium text-foreground">No projects to display</p>
+        </div>
+      )}
     </section>
   );
 }

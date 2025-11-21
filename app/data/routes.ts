@@ -1,10 +1,6 @@
-export interface Route {
-  name: string,
-  href: string
-}
-
-export const routeLinks: Route[] = [
+export const routeLinks = [
   { name: "Home", href: "/" },
   { name: "Projects", href: "/projects" },
+  { name: "Blogs", href: "/blogs" },
   { name: "Contact", href: "/contact" },
 ];

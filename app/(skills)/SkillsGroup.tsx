@@ -3,13 +3,16 @@ import Skill from "./Skill";
 
 export default function SkillsGroup() {
   // Duplicate skills for seamless looping
-  const duplicatedSkills = [...skills, ...skills, ...skills];
+  const duplicatedSkills = [...skills];
 
   return (
     <section
       id="skills"
-      className="mx-0 md:mx-14 px-4 md:px-36 py-14 justify-center overflow-hidden"
+      className="relative z-10 mx-0 md:mx-14 px-4 md:px-36 py-14 justify-center overflow-hidden"
     >
+      <div className="text-center mb-6">
+        <h2 className="text-4xl font-bold text-foreground mb-2">{"Tools & Softwares I use"}</h2>
+      </div>
       {/* First row - left to right */}
       <div className="relative overflow-hidden mb-8">
         <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-l from-transparent to-background dark:from-transparent dark:to-background z-20 pointer-events-none"></div>

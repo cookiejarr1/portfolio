@@ -50,11 +50,11 @@ body {
 }
 
 .animate-marquee-left {
-  animation: marquee-left 180s linear infinite;
+  animation: marquee-left 50s linear infinite;
 }
 
 .animate-marquee-right {
-  animation: marquee-right 160s linear infinite;
+  animation: marquee-right 50s linear infinite;
 }
 
 .hover\:pause-animation:hover {

@@ -19,21 +19,18 @@ export default function Footer() {
                 href="/"
                 className="inline-flex items-center space-x-2 group"
               >
-                <div className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                  {"</>"}
-                </div>
-                <span className="text-xl font-bold text-foreground">
+                <span className="text-xl font-medium text-foreground">
                   {portfolio.username}
                 </span>
               </Link>
-              <p className="text-sm text-foreground/60 max-w-xs">
+              <p className="text-xs text-foreground/60 max-w-xs">
                 {portfolio.footer}
               </p>
             </div>
 
             {/* Quick Links */}
             <div className="space-y-4 px-4">
-              <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider">
+              <h3 className="text-xs font-medium text-foreground uppercase tracking-wider">
                 Quick Links
               </h3>
               <ul className="space-y-2">
@@ -41,7 +38,7 @@ export default function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-foreground/60 hover:text-foreground transition-colors"
+                      className="text-xs font-normal text-foreground/60 hover:text-foreground transition-colors"
                     >
                       {link.name}
                     </Link>
@@ -52,13 +49,13 @@ export default function Footer() {
 
             {/* Connect Section */}
             <div className="space-y-4">
-              <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider">
+              <h3 className="text-xs font-medium text-foreground uppercase tracking-wider">
                 Connect
               </h3>
               <div className="flex space-x-4">
                 <Socials socialsLinks={footerLinks} />
               </div>
-              <p className="text-sm text-foreground/60">
+              <p className="text-xs text-foreground/60">
                 Let&apos;s build something amazing together!
               </p>
             </div>
@@ -67,10 +64,10 @@ export default function Footer() {
           {/* Bottom Bar */}
           <div className="mt-12 pt-8 border-t border-border/40">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <p className="text-sm text-foreground/60">
+              <p className="text-xs text-foreground/60">
                 © {currentYear} {portfolio.username}. All rights reserved.
               </p>
-              <p className="text-sm text-foreground/60 flex items-center gap-1">
+              <p className="text-xs text-foreground/60 flex items-center gap-1">
                 Made with <FiHeart className="text-red-500" size={14} /> using
                 Next.js & TypeScript
               </p>

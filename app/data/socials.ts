@@ -1,15 +1,8 @@
 import { FiMail, FiTwitter } from 'react-icons/fi';
 import { FiLinkedin } from 'react-icons/fi';
 import { FiGithub } from 'react-icons/fi';
-import { IconType } from 'react-icons';
 
-export interface SocialLink {
-  name: string;
-  link: string | null;
-  icon: IconType
-}
-
-export const socialLinks: SocialLink[] = [
+export const socialLinks = [
   {
     name: "GitHub",
     link: "https://github.com/cookiejarr1/portfolio",
@@ -28,7 +21,7 @@ export const socialLinks: SocialLink[] = [
 
 ];
 
-export const footerLinks: SocialLink[] = [
+export const footerLinks = [
   {
     name: "GitHub",
     link: "https://github.com/cookiejarr1/portfolio",

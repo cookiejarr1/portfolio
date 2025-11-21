@@ -1,10 +1,4 @@
-export interface Skill {
-  name: string;
-  link: string | null;
-}
-
-
-export const skills: Skill[] = [
+export const skills = [
   // Aws
   {
     name: "AWS",
@@ -126,15 +120,15 @@ export const skills: Skill[] = [
     link: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/markdown/markdown-original.svg",
   },
   // Matplotlib
-  {
-    name: "Matplotlib",
-    link: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-original.svg",
-  },
+  // {
+  //   name: "Matplotlib",
+  //   link: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-original.svg",
+  // },
   // Moodle
-  {
-    name: "Moodle",
-    link: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/moodle/moodle-original-wordmark.svg",
-  },
+  // {
+  //   name: "Moodle",
+  //   link: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/moodle/moodle-original-wordmark.svg",
+  // },
   // Mongodb
   {
     name: "MongoDB",
