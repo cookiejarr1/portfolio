@@ -9,7 +9,7 @@ export interface Project {
   dateUpdated: string; // YYYY-MM-DD format
   tags: string[];
   image: string;
-  links: {
+  links?: {
     github?: string;
     live?: string;
     demo?: string;

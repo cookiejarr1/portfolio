@@ -56,7 +56,7 @@ export default function About() {
                 duration: 0.2,
                 scale: { type: "spring", stiffness: 10, delay: 0.3 },
               }}
-              className="z-10 text-[6rem] leading-snug"
+              className="z-10 text-[6rem] leading-snug text-foreground"
             >{`I'm ${portfolio.name}`}</motion.p>
             <motion.span
               initial={{ opacity: 0, y: 60 }}
@@ -78,7 +78,7 @@ export default function About() {
                 animate={{ y: 0 }}
                 exit={{ y: "-120%" }}
                 staggerDuration={0.008}
-                splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1 text-sky-600"
+                splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1 text-foreground"
                 transition={{ type: "spring", damping: 30, stiffness: 400 }}
                 rotationInterval={3200}
               />

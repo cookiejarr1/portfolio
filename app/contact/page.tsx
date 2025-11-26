@@ -1,8 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import NavigationBar from "../components/navigation/NavigationBar";
-import Footer from "../components/Footer";
 import {
   Card,
   CardBody,
@@ -51,7 +49,7 @@ export default function ContactPage() {
         );
       }
     } catch (error) {
-      setStatus("error");
+      setStatus("error", error);
       setErrorMessage("An error occurred. Please try again later.");
     }
   };
@@ -67,7 +65,6 @@ export default function ContactPage() {
 
   return (
     <div className="text-foreground bg-background min-h-screen">
-      <NavigationBar />
       <div className="container mx-auto px-4 py-16 max-w-6xl">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">Get In Touch</h1>
@@ -228,7 +225,6 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

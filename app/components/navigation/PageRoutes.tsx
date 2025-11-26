@@ -17,7 +17,7 @@ export default function PageRoutes({ routes }: { routes: Route[] }) {
           href={route.href}
           className={`px-4 py-2 rounded-md text-sm uppercase font-medium transition-colors ${
             isActive(route.href)
-              ? "text-foreground dark:text-sky-600 hover:text-foreground"
+              ? "text-foreground hover:text-foreground"
               : "text-foreground/60 hover:text-foreground"
           }`}
         >

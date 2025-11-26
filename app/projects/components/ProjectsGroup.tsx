@@ -4,6 +4,23 @@ import React, { useState } from "react";
 import { Button, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from "@nextui-org/react";
 import Project from "./Project";
 import { projects } from "@/app/data/projects";
+import type { StaticImageData } from "next/image";
+import islaArenaImage from "@/app/assets/images/isla-arenapng.png";
+import luveVenturesImage from "@/app/assets/images/luve-ventures.png";
+import caapDesImage from "@/app/assets/images/caap-des.png";
+import streamappImage from "@/app/assets/images/streamapp.png";
+import iWasHereImage from "@/app/assets/images/i-was-here.png";
+import smartPigFarm from "@/app/assets/images/smart-pig-farm.png";
+
+// Map project IDs to their illustrative images
+const projectImages: Partial<Record<string, StaticImageData>> = {
+  "isla-arena": islaArenaImage,
+  "luve-ventures": luveVenturesImage,
+  "caap-des": caapDesImage,
+  streamapp: streamappImage,
+  "smart-pig-farm-app": smartPigFarm,
+  "i-was-here": iWasHereImage,
+};
 
 export default function ProjectsGroup() {
   const currentYear = new Date().getFullYear();
@@ -43,15 +60,30 @@ export default function ProjectsGroup() {
   });
 
   return (
-    <section id="projects" className="relative z-10 mx-0 md:mx-14 px-4 md:px-40 py-14">
+    <section id="projects" className="relative z-10 mx-0 md:mx-14 px-4 md:px-40 py-14 mb-24">
       <div className="px-0 py-7 flex justify-between items-center">
         <p className="text-3xl font-medium text-black dark:text-white">
           {"What projects I'm working on"}
         </p>
         <div className="flex gap-2">
-          <Dropdown className="bg-gray-700">
+          {(!selectedYear.has("All") || !selectedMonth.has("All")) && (
+            <Button
+              variant="bordered"
+              className="capitalize bg-red-500 rounded-md font-normal text-sm py-2"
+              onPress={() => {
+                setSelectedYear(new Set(["All"]));
+                setSelectedMonth(new Set(["All"]));
+              }}
+            >
+              Clear filter
+            </Button>
+          )}
+          <Dropdown className="bg-gray-700 rounded-md">
             <DropdownTrigger>
-              <Button variant="bordered" className="capitalize font-normal text-sm">
+              <Button
+                variant="bordered"
+                className="capitalize bg-gray-600 rounded-md font-normal text-sm py-2"
+              >
                 Year: {Array.from(selectedYear)[0]}
               </Button>
             </DropdownTrigger>
@@ -63,7 +95,7 @@ export default function ProjectsGroup() {
               selectionMode="single"
               selectedKeys={selectedYear}
               onSelectionChange={setSelectedYear}
-              className="text-foreground"
+              className="text-foreground text-sm font-medium pb-2"
             >
               {years.map((year) => (
                 <DropdownItem key={year} textValue={year} className="pt-2 text-white">
@@ -72,9 +104,12 @@ export default function ProjectsGroup() {
               ))}
             </DropdownMenu>
           </Dropdown>
-          <Dropdown className="bg-gray-700">
+          <Dropdown className="bg-gray-700 rounded-md">
             <DropdownTrigger>
-              <Button variant="bordered" className="capitalize font-normal text-sm">
+              <Button
+                variant="bordered"
+                className="capitalize bg-gray-600 rounded-md font-normal text-sm py-2"
+              >
                 Month: {Array.from(selectedMonth)[0]}
               </Button>
             </DropdownTrigger>
@@ -86,7 +121,7 @@ export default function ProjectsGroup() {
               selectionMode="single"
               selectedKeys={selectedMonth}
               onSelectionChange={setSelectedMonth}
-              className="text-foreground"
+              className="text-foreground text-sm font-medium pb-2"
             >
               {months.map((month) => (
                 <DropdownItem key={month} textValue={month} className="pt-2 text-white">
@@ -100,7 +135,7 @@ export default function ProjectsGroup() {
       {filtered.length > 0 ? (
         <div className="gap-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {filtered.map((project) => (
-            <Project key={project.id} project={project} />
+            <Project key={project.id} project={project} image={projectImages[project.id]} />
           ))}
         </div>
       ) : (
