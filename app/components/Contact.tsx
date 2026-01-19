@@ -1,6 +1,5 @@
 import { Button, Divider } from "@nextui-org/react";
 import Link from "next/link";
-import { FiGithub, FiLinkedin, FiMail, FiTwitter } from "react-icons/fi";
 import Profile from "./Profile";
 import { socialLinks } from "../data/socials";
 import Socials from "./navigation/Socials";
