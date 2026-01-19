@@ -1,11 +1,22 @@
+import islaArenaImage from "@/app/assets/images/isla-arena.png";
+import luveVenturesImage from "@/app/assets/images/luve-ventures.png";
+import caapDesImage from "@/app/assets/images/caap-des.png";
+import streamappImage from "@/app/assets/images/streamapp.png";
+import iWasHereImage from "@/app/assets/images/i-was-here.png";
+import smartPigFarm from "@/app/assets/images/smart-pig-farm.png";
+import gamifiedLMS from "@/app/assets/images/gamified-lms.png";
+
 export const projects = [
   {
     id: "isla-arena",
     title: "Isla Arena Sports Organizing",
     type: "",
-    image: "https://images.unsplash.com/photo-1521412644187-c49fa049e84d?auto=format&fit=crop&w=1600&q=80",
+    image: {
+      static: islaArenaImage,
+      placeholder: "https://images.unsplash.com/photo-1663970206579-c157cba7edda?q=80&w=1228&auto=format&fit=crop",
+    },
     links: { live: "https://islaarena.ae" },
-    description: "Book your favorite sports leagues in seconds and enjoy a visually engaging, interactive planner. Effortlessly stay up to date with lively brand themes and instant updates.",
+    description: "We are a team of sports event enthusiasts - passionate professionals dedicated to creating and promoting dynamic, engaging, and inclusive sporting experiences. With years of experience and a love for the game, we focus on every detail to ensure each event brings people together through well managed, engaging and inclusive sports events.",
     dateCreated: "2023-01-15",
     dateUpdated: "2023-09-20",
     tags: ["React", "TailwindCSS", "Vite", "GSAP", "Framer Motion", "Hostinger"],
@@ -18,6 +29,7 @@ export const projects = [
 **Tech Stack**
 - Frontend: **React**, **Vite**, **Tailwind CSS**
 - Animation: **GSAP**, **Framer Motion**
+- Email Service: **emailjs**
 - Hosting: **Hostinger**
     `,
   },
@@ -25,9 +37,12 @@ export const projects = [
     id: "luve-ventures",
     title: "Luve Ventures",
     type: "",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80",
+    image: {
+      static: luveVenturesImage,
+      placeholder: "https://images.unsplash.com/photo-1663970206579-c157cba7edda?q=80&w=1228&auto=format&fit=crop",
+    },
     links: { live: "https://luveventures.ae", github: "" },
-    description: "Discover a modern venture experience where connecting, learning, and reaching out is seamless. Enjoy clear information and easy inquiries, all within a beautifully branded site.",
+    description: "A premier multi-disciplinary service provider, dedicated to delivering a broad range of innovative and tailored solutions. Supporting our international clientele by offering expertise in various sectors including Commercial Brokerage, Social Media Marketing, Event Management Consultancy, Management Consultancies, and Tourism and Recreation Consulting.",
     dateCreated: "2023-02-05",
     dateUpdated: "2023-10-02",
     tags: ["React", "TailwindCSS", "Vite", "email.js", "Hostinger"],
@@ -38,8 +53,9 @@ export const projects = [
 - Theme support for brands using global Tailwind style tokens.
 
 **Tech Stack**
-- Frontend: **React**, **Vite**, **TailwindCSS**
-- Forms/Integration: **emailjs**
+- Frontend: **React**, **Vite**, **Tailwind CSS**
+- Animation: **GSAP**, **Framer Motion**
+- Email Service: **emailjs**
 - Hosting: **Hostinger**
     `,
   },
@@ -47,7 +63,10 @@ export const projects = [
     id: "cms",
     title: "Headless CMS Design System",
     type: "",
-    image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1600&q=80",
+    image: {
+      static: null,
+      placeholder: "https://images.unsplash.com/photo-1663970206579-c157cba7edda?q=80&w=1228&auto=format&fit=crop",
+    },
     links: {},
     description: "Take control of your content with a clean, user-friendly toolkit and organized components. Designed to empower teams to manage and share information with clarity.",
     dateCreated: "2023-03-12",
@@ -55,7 +74,7 @@ export const projects = [
     tags: ["Figma", "UI/UX Design", "Design System"],
     content: `
 **Features**
-- 120+ editorial UI components built for CMS workflows.
+- Modular and responsive UI components built for CMS workflows.
 - Atomic token system covering type, color, spacing, and grids.
 - Figma specs and developer handoff documentation.
 
@@ -68,9 +87,12 @@ export const projects = [
     id: "lms",
     title: "Gamified LMS",
     type: "",
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1600&q=80",
+    image: {
+      static: gamifiedLMS,
+      placeholder: "https://images.unsplash.com/photo-1663970206579-c157cba7edda?q=80&w=1228&auto=format&fit=crop",
+    },
     links: {},
-    description: "Keep students inspired with helpful progress dashboards and interactive lessons. Flexible layouts and mobile-friendly tools make learning exciting and accessible.",
+    description: "Keep students inspired with helpful progress dashboards and interactive lessons. Flexible layouts and user-friendly tools make learning exciting and accessible.",
     dateCreated: "2023-04-02",
     dateUpdated: "2023-12-01",
     tags: ["Figma", "UI/UX Design", "Design System"],
@@ -78,20 +100,24 @@ export const projects = [
 **Features**
 - Dashboard UIs for class and cohort tracking with badge rewards.
 - Drag-and-drop lesson templates for instructors.
-- Mobile-first Figma prototypes for rapid testing.
+- Interactive course pages with modular lessons, assignments, and calendar views for students and instructors.
+
 
 **Tech Stack**
 - Design: **Figma**
-- Prototyping: **Figma** (desktop, mobile)
+- Prototyping: **Figma** 
     `,
   },
   {
     id: "caap-des",
-    title: "CAAP Data Entry System",
+    title: "CAAP Data Entry System (Web Version)",
     type: "",
-    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=1600&q=80",
+    image: {
+      static: caapDesImage,
+      placeholder: "https://images.unsplash.com/photo-1663970206579-c157cba7edda?q=80&w=1228&auto=format&fit=crop",
+    },
     links: { github: "" },
-    description: "Manage approvals and official forms in a single, organized space—no paperwork hassles. Track all activity and easily download professional reports any time.",
+    description: "Manage approvals and official forms in a single, organized space—no paperwork hassles. Track all activity and easily generate data-driven reports any time.",
     dateCreated: "2022-11-18",
     dateUpdated: "2023-09-20",
     tags: ["HTML", "CSS", "JavaScript", "PostgreSQL", "Python", "Django"],
@@ -103,21 +129,24 @@ export const projects = [
 
 **Tech Stack**
 - Frontend: **HTML**, **CSS**, **JavaScript**
-- Backend: **Python** (**Django**)
+- Backend: **Python**, **Django**
 - Database: **PostgreSQL**
-- Reports: **CSV**, **PDF** output
+- Exports: **CSV**, **PDF**
     `,
   },
   {
     id: "smart-pig-farm-app",
     title: "Smart Pig Farm App",
     type: "",
-    image: "https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=1600&q=80",
+    image: {
+      static: smartPigFarm,
+      placeholder: "https://images.unsplash.com/photo-1663970206579-c157cba7edda?q=80&w=1228&auto=format&fit=crop",
+    },
     links: { github: "" },
     description: "Monitor your farm and livestock in real time from your phone or tablet. Keep animals healthy with timely alerts and simple, reliable record-keeping.",
     dateCreated: "2022-08-21",
     dateUpdated: "2023-10-05",
-    tags: ["Flutter", "FastAPI", "AWS Lambda", "DynamoDB", "Python", "OpenCV", "IOT", "AI", "Arduino"],
+    tags: ["Flutter", "FastAPI", "AWS Lambda", "Python", "DynamoDB", "OpenCV", "IOT", "AI", "Arduino"],
     content: `
 **Features**
 - Flutter dashboard shows animal data from Arduino-powered sensors.
@@ -134,14 +163,17 @@ export const projects = [
   },
   {
     id: "streamapp",
-    title: "Streamapp Events App",
+    title: "Streamapp",
     type: "",
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1600&q=80",
+    image: {
+      static: streamappImage,
+      placeholder: "https://images.unsplash.com/photo-1663970206579-c157cba7edda?q=80&w=1228&auto=format&fit=crop",
+    },
     links: {},
     description: "Stream your favorite content smoothly and enjoy a personalized viewing experience on any device. Everything is designed to match your brand and keep you connected.",
     dateCreated: "2023-05-07",
     dateUpdated: "2023-12-05",
-    tags: ["React Native", "Laravel", "MariaDB", "Composer", "FastAPI", "REST API"],
+    tags: ["React Native", "Laravel", "PHP", "MySQL", "MariaDB", "Composer"],
     content: `
 **Features**
 - Adaptive bitrate player with offline queueing (React Native app).
@@ -150,16 +182,19 @@ export const projects = [
 
 **Tech Stack**
 - Mobile: **React Native**
-- Backend: **Laravel**, **FastAPI**
+- Backend: **Laravel**, **PHP**, **MySQL**
 - Database: **MariaDB**
-- Orchestration: **Composer**
+- Orchestration: **Composer**, **PHP**
     `,
   },
   {
     id: "i-was-here",
     title: "I Was Here Travel Journal",
     type: "",
-    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80",
+    image: {
+      static: iWasHereImage,
+      placeholder: "https://images.unsplash.com/photo-1663970206579-c157cba7edda?q=80&w=1228&auto=format&fit=crop",
+    },
     links: { live: "https://iwas-here.weebly.com" },
     description: "Capture your travels with vivid stories, photos, and memories. Make each trip unforgettable with custom designs and interactive journals to share with friends or guests.",
     dateCreated: "2021-06-10",

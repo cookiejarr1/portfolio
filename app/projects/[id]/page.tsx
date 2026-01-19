@@ -107,7 +107,10 @@ export default function ProjectDetailPage() {
     .slice(0, 4);
   const fallbackRelated = projects.filter((p) => p.id !== project.id).slice(0, 4);
   const relatedToRender = relatedProjects.length > 0 ? relatedProjects : fallbackRelated;
-  const randomTagIndex = Math.floor(Math.random() * tagPalette.length) < 0 ? 0 : Math.floor(Math.random() * tagPalette.length);
+  const randomTagIndex =
+    Math.floor(Math.random() * tagPalette.length) < 0
+      ? 0
+      : Math.floor(Math.random() * tagPalette.length);
 
   return (
     <div className="text-foreground bg-background min-h-screen">
@@ -120,14 +123,14 @@ export default function ProjectDetailPage() {
 
         <Card className="bg-background/60 dark:bg-default-50/20 border border-default-200/60 dark:border-white/5 rounded-xl">
           <CardBody className="p-8 space-y-8">
-            <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-default-200/60 dark:border-white/10 bg-default-100">
+            <div className="relative w-full h-[480px] rounded-xl overflow-hidden border border-default-200/60 dark:border-white/10 bg-default-100">
               <Image
-                src={project.image || "/placeholder.png"}
+                src={project.image.static || project.image.placeholder}
                 alt={project.title}
                 fill
                 priority
                 className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 768px) 100vw 100vh, 50vw 100vh"
               />
             </div>
 
@@ -189,7 +192,10 @@ export default function ProjectDetailPage() {
                   <Chip
                     key={tag}
                     variant="flat"
-                    className={clsx("px-2.5 py-1 text-xs font-medium", tagPalette[randomTagIndex - index <= 0 ? 0 : randomTagIndex - index])}
+                    className={clsx(
+                      "px-2.5 py-1 text-xs font-medium",
+                      tagPalette[randomTagIndex - index <= 0 ? 0 : randomTagIndex - index],
+                    )}
                   >
                     {tag}
                   </Chip>
@@ -231,13 +237,13 @@ export default function ProjectDetailPage() {
               {livePreviewUrl ? (
                 <div className="overflow-x-auto pb-2" ref={previewWrapperRef}>
                   <div
-                    className="relative rounded-2xl border border-default-200/80 dark:border-white/10 h-[520px] bg-white dark:bg-black mx-auto transition-all duration-300 min-w-[320px]"
+                    className="relative rounded-lg h-[720px] bg-white dark:bg-black mx-auto transition-all duration-300 min-w-[320px]"
                     style={{ width: previewWidthStyle }}
                   >
                     <iframe
                       src={livePreviewUrl}
                       title={`${project.title} live preview`}
-                      className="w-full h-full"
+                      className="w-full h-full rounded-lg"
                       loading="lazy"
                       sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
                     />

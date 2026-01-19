@@ -22,37 +22,55 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Here you would integrate with an email service like Resend
-    // For now, we'll log the data and return success
-    console.log("Contact form submission:", { name, email, message });
+    // EmailJS configuration
+    const serviceId = process.env.EMAILJS_SERVICE_ID;
+    const templateId = process.env.EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.EMAILJS_PUBLIC_KEY;
 
-    // Example with Resend (uncomment and configure when ready):
-    /*
-    const { Resend } = require('resend');
-    const resend = new Resend(process.env.RESEND_API_KEY);
+    if (!serviceId || !templateId || !publicKey) {
+      console.error("EmailJS configuration is missing");
+      return NextResponse.json(
+        { error: "Email service is not configured" },
+        { status: 500 }
+      );
+    }
 
-    await resend.emails.send({
-      from: 'Portfolio <onboarding@resend.dev>',
-      to: 'your-email@example.com',
-      subject: `New Contact Form Submission from ${name}`,
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message}</p>
-      `,
-      replyTo: email,
+    // Send email using EmailJS REST API
+    const emailjsUrl = `https://api.emailjs.com/api/v1.0/email/send`;
+
+    const emailData = {
+      service_id: serviceId,
+      template_id: templateId,
+      user_id: publicKey,
+      template_params: {
+        from_name: name,
+        from_email: email,
+        message: message,
+        to_name: "Cyrus Jarod Layugan",
+      },
+    };
+
+    const response = await fetch(emailjsUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(emailData),
     });
-    */
 
-    // For development/demo purposes, we'll simulate a successful email send
-    // In production, replace this with actual email sending logic
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error("EmailJS API error:", errorText);
+      return NextResponse.json(
+        { error: "Failed to send email. Please try again later." },
+        { status: response.status }
+      );
+    }
 
     return NextResponse.json(
-      { 
-        success: true, 
-        message: "Message sent successfully! (Demo mode - configure email service for production)" 
+      {
+        success: true,
+        message: "Message sent successfully!",
       },
       { status: 200 }
     );

@@ -10,7 +10,7 @@ A modern, fully-featured portfolio website built with Next.js, TypeScript, and N
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 - **Markdown**: [react-markdown](https://github.com/remarkjs/react-markdown)
 - **Syntax Highlighting**: [rehype-highlight](https://github.com/rehypejs/rehype-highlight)
-- **Email**: [Resend](https://resend.com/) (configurable)
+- **Email**: [EmailJS](https://www.emailjs.com/) (contact form integration)
 - **Theme**: [next-themes](https://github.com/pacocoursey/next-themes)
 - **Animation**: [Framer Motion](https://www.framer.com/motion/)
 

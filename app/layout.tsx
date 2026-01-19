@@ -5,6 +5,7 @@ import './globals.css'
 import { Bevan } from 'next/font/google'
 import NavigationBar from "./components/navigation/NavigationBar";
 import Footer from "./components/Footer";
+import { Toaster } from 'sonner'
 
 export const metadata: Metadata = {
   title: 'Cyrus Layugan',
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={bevan.className}>
       <body className="relative">
+      <Toaster />
         <Providers>
           <NavigationBar/>
           {children}

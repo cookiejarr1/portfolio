@@ -5,7 +5,7 @@ import { socialLinks } from "@/app/data/socials";
 import Link from "next/link";
 import { useState } from "react";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
-import ThemeSwitcher from "../ThemeSwitcher";
+// import ThemeSwitcher from "../ThemeSwitcher";
 import PageRoutes from "./PageRoutes";
 import Socials from "./Socials";
 import * as motion from "motion/react-client";
@@ -66,12 +66,12 @@ export default function NavigationBar() {
           >
             {/* <Socials socialsLinks={socialLinks} /> */}
             <div className="h-6 w-px bg-border/40" />
-            <ThemeSwitcher />
+            {/* <ThemeSwitcher /> */} {/* TODO: Disabled temporarily because of the theme switcher not yet done */}
           </motion.div>
 
           {/* Mobile Menu Button & Theme Switcher */}
           <div className="flex md:hidden items-center space-x-4">
-            <ThemeSwitcher />
+            {/* <ThemeSwitcher /> */} {/* TODO: Disabled temporarily because of the theme switcher not yet done */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="text-foreground/60 hover:text-foreground transition-colors"

@@ -4,23 +4,8 @@ import React, { useState } from "react";
 import { Button, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from "@nextui-org/react";
 import Project from "./Project";
 import { projects } from "@/app/data/projects";
-import type { StaticImageData } from "next/image";
-import islaArenaImage from "@/app/assets/images/isla-arenapng.png";
-import luveVenturesImage from "@/app/assets/images/luve-ventures.png";
-import caapDesImage from "@/app/assets/images/caap-des.png";
-import streamappImage from "@/app/assets/images/streamapp.png";
-import iWasHereImage from "@/app/assets/images/i-was-here.png";
-import smartPigFarm from "@/app/assets/images/smart-pig-farm.png";
-
-// Map project IDs to their illustrative images
-const projectImages: Partial<Record<string, StaticImageData>> = {
-  "isla-arena": islaArenaImage,
-  "luve-ventures": luveVenturesImage,
-  "caap-des": caapDesImage,
-  streamapp: streamappImage,
-  "smart-pig-farm-app": smartPigFarm,
-  "i-was-here": iWasHereImage,
-};
+import emptyImage from "@/app/assets/images/empty.png";
+import Image from "next/image";
 
 export default function ProjectsGroup() {
   const currentYear = new Date().getFullYear();
@@ -60,7 +45,7 @@ export default function ProjectsGroup() {
   });
 
   return (
-    <section id="projects" className="relative z-10 mx-0 md:mx-14 px-4 md:px-40 py-14 mb-24">
+    <section id="projects" className="relative z-10 mx-0 md:mx-14 px-4 md:px-32 py-14 mb-24">
       <div className="px-0 py-7 flex justify-between items-center">
         <p className="text-3xl font-medium text-black dark:text-white">
           {"What projects I'm working on"}
@@ -133,13 +118,14 @@ export default function ProjectsGroup() {
         </div>
       </div>
       {filtered.length > 0 ? (
-        <div className="gap-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {filtered.map((project) => (
-            <Project key={project.id} project={project} image={projectImages[project.id]} />
+            <Project key={project.id} project={project} />
           ))}
         </div>
       ) : (
         <div className="pt-16 pb-10 h-72 align-middle">
+          <Image src={emptyImage} alt="empty" width={250} height={250} />
           <p className="text-center font-medium text-foreground">No projects to display</p>
         </div>
       )}

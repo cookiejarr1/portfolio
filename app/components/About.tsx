@@ -41,7 +41,7 @@ export default function About() {
               }}
               className="pointer-events-auto z-20 text-xs inline-flex gap-1 text-foreground/80"
             >
-              <span>If you are reading this, well congrats</span>
+              <span>{"If you can read this, well congrats cuz I can't"}</span>
               <span className="underline underline-offset-2 decoration-dotted">
                 <Link href={"/contact"}>contact me</Link>
               </span>
@@ -94,7 +94,7 @@ export default function About() {
                 duration: 0.2,
                 scale: { type: "spring", stiffness: 10, delay: 0.3 },
               }}
-              className="text-base whitespace-pre mt-5 mb-8 text-foreground/70"
+              className="text-base font-medium whitespace-pre mt-5 mb-8 text-foreground/70"
             >
               {portfolio.description}
             </motion.p>

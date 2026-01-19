@@ -1,4 +1,5 @@
 import { IconType } from 'react-icons';
+import type { StaticImageData } from 'next/image';
 
 
 export interface Project {
@@ -8,7 +9,10 @@ export interface Project {
   dateCreated: string; // YYYY-MM-DD format
   dateUpdated: string; // YYYY-MM-DD format
   tags: string[];
-  image: string;
+  image: {
+    static: StaticImageData;
+    placeholder: string;
+  };
   links?: {
     github?: string;
     live?: string;
