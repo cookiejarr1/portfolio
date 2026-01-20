@@ -2,7 +2,7 @@
 import Image from "next/image";
 import UnknownCookie from "@/app/assets/icons/unknown-cookie.png";
 
-export default function Skill({ skill }) {
+export default function Skill({ skill }: { name: string; link: string }) {
   return (
     <div
       className="
